@@ -12,7 +12,9 @@ public class VolumeCalculationBean implements VolumeCalculation
      * The idea of algorithm is this:
      * We are going through all elements to find left borders of the pit - O(n)
      * We are going through all elements to find left borders of the pit - O(n)
-     * We are going through all elements to calculate volume of element depending on borders
+     * We are going through all elements to calculate volume of element depending on borders O(n)
+     * Therefore time complexity is O(n)
+     * Space complexity is O(n) too - we need 2 arrays (left borders and right borders, all n-length)
      *
      * @param heights array of heights of each element
      * @return total volume in units
@@ -51,6 +53,7 @@ public class VolumeCalculationBean implements VolumeCalculation
             }
         }
 
+        // calculate volume for i-th element(pit)
         for (int i = 1; i < n; i++)
         {
             int volume = Math.min(rightBorders[i], leftBorders[i]) - heights[i];
